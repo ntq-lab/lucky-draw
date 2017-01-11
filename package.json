@@ -1,0 +1,33 @@
+{
+  "name": "lucky-draw",
+  "version": "1.0.0",
+  "description": "Simple web page that call random.org API for lucky-draw event at NTQ Year-End party 2016",
+  "main": "index.js",
+  "dependencies": {
+    "express": "4.14.0",
+    "request": "2.79.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-develop": "^0.4.0",
+    "grunt-injector": "^1.1.0",
+    "load-grunt-tasks": "^3.5.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntq-lab/lucky-draw.git"
+  },
+  "author": "d@dapps.me",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ntq-lab/lucky-draw/issues"
+  },
+  "homepage": "https://github.com/ntq-lab/lucky-draw#readme"
+}
