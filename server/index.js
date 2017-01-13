@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const nodeRandom = require('node-random');
 const request = require('request');
 
 function random() {
@@ -21,7 +22,7 @@ function random() {
 				return resolve(processTextResult(body));
 			}
 
-			reject(err || new Error());
+			reject(err || new Error(res.statusCode));
 		});
 	});
 }
@@ -33,9 +34,6 @@ function processTextResult(text) {
 		.split('\n')
 		.map((n) => parseInt(n, 10) - 1);
 }
-
-random()
-	.then(console.log.bind(console));
 
 const app = express();
 
@@ -49,7 +47,21 @@ app.get('/api/lucky', (req, res, next) => {
 			res.json({
 				arr: nums,
 			});
+		})
+		.catch(function(e) {
+			// fallback
+			nodeRandom.integers({
+				number: 3,
+				minimum: 0,
+				maximum: 9,
+				colums: 1,
+				base: 10
+			}, function(error, nums) {
+				res.json({
+					arr: nums,
+				});
+			})
 		});
 });
 
-app.listen(3333, console.log.bind(console, 'Started at :3333'));
+app.listen(3333, () => console.log('Started at :3333'));

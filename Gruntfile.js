@@ -29,6 +29,9 @@ module.exports = function(grunt) {
 			},
 		},
 		watch: {
+			options: {
+				spawn: false,
+			},
 			client: {
 				files: [
 					'client/**',
@@ -40,7 +43,7 @@ module.exports = function(grunt) {
 				files: [
 					'server/**',
 				],
-				tasks: 'develop:server',
+				tasks: ['develop:server'],
 			},
 		},
 		develop: {

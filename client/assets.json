@@ -1,4 +1,5 @@
 [
+	"node_modules/tween.js/src/Tween.js",
 	"public/css/**/*.css",
 	"public/js/**/*.js"
 ]

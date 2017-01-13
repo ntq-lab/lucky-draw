@@ -1,0 +1,97 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	font-family: Consolas, monaco, monospace;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+h3 {
+	font-family: Consolas, monaco, monospace;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+}
+p {
+	font-family: Consolas, monaco, monospace;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+blockquote {
+	font-family: Consolas, monaco, monospace;
+	font-size: 21px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+pre {
+	font-family: Consolas, monaco, monospace;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 18.5714px;
+}
+
+html {
+	box-sizing: border-box;
+	font-family: Consolas, monaco, monospace;
+	background: black;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+.slot-machine {
+	margin-top: 300px;
+	border: 1px solid black;
+	height: 200px;
+	white-space: nowrap;
+	background: white;
+	text-align: center;
+}
+.slot {
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+}
+.slot > ul {
+	position: absolute;
+	list-style: none;
+	left: 0;
+	top: 0;
+}
+.slot > ul > li {
+	display: block;
+	width: 200px;
+	height: 200px;
+	color: blue;
+	line-height: 200px;
+	text-align: center;
+	font-size: 150px
+}
+.slot > ul > li:last-child {
+	border-bottom: none;
+}
+.control {
+	text-align: center;
+	margin-top: 50px;
+}
+.control > button {
+	font-size: 50px;
+	font-family: Consolas, monaco, monospace;
+	padding: 20px;
+}
