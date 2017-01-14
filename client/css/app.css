@@ -53,21 +53,50 @@ html {
 	box-sizing: inherit;
 }
 
+.wrapper {
+	width: 801px;
+	margin: 100px auto;
+	position: relative;
+}
+
 .slot-machine {
 	margin-top: 300px;
 	border: 1px solid black;
-	height: 200px;
+	width: 801px;
+	height: 535px;
+	background: url('/img/bg.PNG');
 	white-space: nowrap;
-	background: white;
 	text-align: center;
+	margin: 0 auto;
+	position: relative;
 }
 .slot {
-	width: 200px;
-	height: 200px;
+	width: 160px;
+	height: 290px;
 	display: inline-block;
 	position: relative;
 	overflow: hidden;
+	position: absolute;
+	top: 163px;
 }
+#slot-1st {
+	left: 28px;
+	color: #F44336;
+	font-size: 150px;
+}
+
+#slot-2nd {
+	left: 229px;
+	color: #8BC34A;
+	font-size: 150px;
+}
+
+#slot-3rd {
+	left: 426px;
+	color: #2196F3;
+	font-size: 150px;
+}
+
 .slot > ul {
 	position: absolute;
 	list-style: none;
@@ -76,22 +105,35 @@ html {
 }
 .slot > ul > li {
 	display: block;
-	width: 200px;
-	height: 200px;
-	color: blue;
-	line-height: 200px;
+	width: 160px;
+	height: 290px;
+	line-height: 290px;
 	text-align: center;
-	font-size: 150px
+	font-weight: bold;
 }
-.slot > ul > li:last-child {
-	border-bottom: none;
-}
+
 .control {
 	text-align: center;
 	margin-top: 50px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }
 .control > button {
-	font-size: 50px;
+	/*font-size: 50px;*/
 	font-family: Consolas, monaco, monospace;
 	padding: 20px;
+	opacity: 0;
+	cursor: pointer;
+	width: 190px;
+}
+
+.blink {
+	animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+	50% {
+	opacity: 0;
+	}
 }

@@ -5,6 +5,7 @@ $(window).ready(function() {
 var count = -1;
 
 var lastPos = [0, 0, 0];
+var height = 290;
 
 function start() {
 	if (count !== -1) {
@@ -12,15 +13,19 @@ function start() {
 	}
 
 	console.log('start');
+	$('#start-btn')
+		.text('WAITING')
+		.attr('disabled', 'disabled')
+		.addClass('blink');
 
 	count = 0;
 
 	$.ajax({
 		url: '/api/lucky',
 		success: function(res) {
-			var ul1 = $('#1st-slot > ul')[0];
-			var ul2 = $('#2nd-slot > ul')[0];
-			var ul3 = $('#3rd-slot > ul')[0];
+			var ul1 = $('#slot-1st > ul')[0];
+			var ul2 = $('#slot-2nd > ul')[0];
+			var ul3 = $('#slot-3rd > ul')[0];
 
 			move(ul1, lastPos[0], 0, res.arr[0]);
 			move(ul2, lastPos[1], 0, res.arr[1]);
@@ -38,6 +43,10 @@ function finish() {
 		count = -1;
 
 		console.log('done');
+		$('#start-btn')
+			.text('START')
+			.removeAttr('disabled')
+			.removeClass('blink');
 	}
 }
 
@@ -47,13 +56,13 @@ setInterval(function() {
 
 function toNumber(ul, from, to, times, target, cont) {
 	var pos = {
-		top: -(from * 200),
+		top: -(from * height),
 	};
 
 	var tween = new TWEEN.Tween(pos)
 	.to({
-		top: -(to * 200),
-	}, Math.abs(from - to) * 400)
+		top: -(to * height),
+	}, Math.abs(from - to) * 300)
 	.onUpdate(function() {
 		ul.style.top = pos.top + 'px';
 	})
@@ -64,17 +73,16 @@ function toNumber(ul, from, to, times, target, cont) {
 
 		move(ul, to, times, target);
 	})
-	.easing(cont ? TWEEN.Easing.Quadratic.InOut : TWEEN.Easing.Back.InOut)
+	.easing(cont ? TWEEN.Easing.Quadratic.InOut : TWEEN.Easing.Circular.InOut)
 	.start();
 }
 
 function move(ul, from, times, target) {
 	console.log('move', target);
-	if (times < 5) {
+	if (times < 4) {
 		toNumber(ul, from, (times % 2) * 9, times + 1, target, true);
 	} else {
-		console.log('done 3 times');
-
+		// finish
 		toNumber(ul, from, target, times + 1);
 	}
 }
